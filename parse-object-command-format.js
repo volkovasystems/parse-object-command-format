@@ -21,6 +21,14 @@ var parseObjectCommandFormat = function parseObjectCommandFormat( stringData ){
 	//This will separate and extract the object command format tokens.
 	var matchList = stringData.match( OBJECT_COMMAND_FORMAT_GREEDY_PATTERN );
 
+    var matchListLength = matchList.length;
+    if( matchList === null || matchListLength == 0 ){
+        console.warn( "data does not contain any object command formats that can be parsed" );
+        console.warn( "parseObjectCommandFormat will do anything further" );
+
+        return [ ];
+    }
+
 	//This will remove excess tokens that is not needed.
 	matchList = matchList.join( "[\n]" ).replace( /\t/g, "" ).split( "[\n]" );
 
