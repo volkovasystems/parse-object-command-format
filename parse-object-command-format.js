@@ -30,6 +30,12 @@
 			"moduleName": "parseObjectCommandFormat",
 			"authorName": "Richeve S. Bebedor",
 			"authorEMail": "richeve.bebedor@gmail.com",
+            "contributorList": [
+                {
+                    "contributorName": "Geoff Diaz",
+                    "contributorEMail": "",
+                }
+            ],
 			"repository": "git@github.com:volkovasystems/parse-object-command-format.git"
 		}
 	@end-module-configuration
