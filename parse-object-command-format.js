@@ -64,7 +64,7 @@ var parseObjectCommandFormat = function parseObjectCommandFormat( stringData ){
 
 	//We need to traverse each object command data to parse JSON data parameters.
 	var objectCommandList = [ ];
-	var matchListLength = matchList.length;
+
 	var objectCommandData;
 	for( var index = 0; index < matchListLength; index++ ){
 		//Remove excess spaces at both ends.
