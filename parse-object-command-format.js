@@ -1,27 +1,27 @@
 /*:
-    @module-license:
-        The MIT License (MIT)
+	@module-license:
+		The MIT License (MIT)
 
-        Copyright (c) 2014 Richeve Siodina Bebedor
+		Copyright (c) 2014 Richeve Siodina Bebedor
 
-        Permission is hereby granted, free of charge, to any person obtaining a copy
-        of this software and associated documentation files (the "Software"), to deal
-        in the Software without restriction, including without limitation the rights
-        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-        copies of the Software, and to permit persons to whom the Software is
-        furnished to do so, subject to the following conditions:
+		Permission is hereby granted, free of charge, to any person obtaining a copy
+		of this software and associated documentation files (the "Software"), to deal
+		in the Software without restriction, including without limitation the rights
+		to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+		copies of the Software, and to permit persons to whom the Software is
+		furnished to do so, subject to the following conditions:
 
-        The above copyright notice and this permission notice shall be included in all
-        copies or substantial portions of the Software.
+		The above copyright notice and this permission notice shall be included in all
+		copies or substantial portions of the Software.
 
-        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-        SOFTWARE.
-    @end-module-license
+		THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+		IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+		FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+		AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+		LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+		OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+		SOFTWARE.
+	@end-module-license
 
 	@module-configuration:
 		{
@@ -30,18 +30,18 @@
 			"moduleName": "parseObjectCommandFormat",
 			"authorName": "Richeve S. Bebedor",
 			"authorEMail": "richeve.bebedor@gmail.com",
-            "contributorList": [
-                {
-                    "contributorName": "Geoff Diaz",
-                    "contributorEMail": "",
-                }
-            ],
+			"contributorList": [
+				{
+					"contributorName": "Geoff Diaz",
+					"contributorEMail": "",
+				}
+			],
 			"repository": "git@github.com:volkovasystems/parse-object-command-format.git"
 		}
 	@end-module-configuration
 
 	@module-documentation:
-		
+
 	@end-module-documentation
 
 	@include:
@@ -51,13 +51,13 @@ var parseObjectCommandFormat = function parseObjectCommandFormat( stringData ){
 	//This will separate and extract the object command format tokens.
 	var matchList = stringData.match( OBJECT_COMMAND_FORMAT_GREEDY_PATTERN );
 
-    var matchListLength = matchList.length;
-    if( matchList === null || matchListLength == 0 ){
-        console.warn( "data does not contain any object command formats that can be parsed" );
-        console.warn( "parseObjectCommandFormat will do anything further" );
+	var matchListLength = matchList.length;
+	if( matchList === null || matchListLength == 0 ){
+		console.warn( "data does not contain any object command formats that can be parsed" );
+		console.warn( "parseObjectCommandFormat will do anything further" );
 
-        return [ ];
-    }
+		return [ ];
+	}
 
 	//This will remove excess tokens that is not needed.
 	matchList = matchList.join( "[\n]" ).replace( /\t/g, "" ).split( "[\n]" );
@@ -69,7 +69,7 @@ var parseObjectCommandFormat = function parseObjectCommandFormat( stringData ){
 	for( var index = 0; index < matchListLength; index++ ){
 		//Remove excess spaces at both ends.
 		objectCommandData = matchList[ index ].trim( );
-		
+
 		//Extract parameter data and command.
 		objectCommandData = objectCommandData.match( OBJECT_COMMAND_FORMAT_PATTERN );
 
