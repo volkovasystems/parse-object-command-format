@@ -3,6 +3,7 @@
 		The MIT License (MIT)
 
 		Copyright (c) 2014 Richeve Siodina Bebedor
+		Copyright (c) 2014 Geoff Diaz
 
 		Permission is hereby granted, free of charge, to any person obtaining a copy
 		of this software and associated documentation files (the "Software"), to deal
@@ -48,37 +49,40 @@
 	@end-include
 */
 var parseObjectCommandFormat = function parseObjectCommandFormat( stringData ){
-	//This will separate and extract the object command format tokens.
+	//: This will separate and extract the object command format tokens.
 	var matchList = stringData.match( OBJECT_COMMAND_FORMAT_GREEDY_PATTERN );
 
 	var matchListLength = matchList.length;
 	if( matchList === null || matchListLength == 0 ){
 		console.warn( "data does not contain any object command formats that can be parsed" );
-		console.warn( "parseObjectCommandFormat will do anything further" );
+		console.warn( "parseObjectCommandFormat will not do anything further" );
 
 		return [ ];
 	}
 
-	//This will remove excess tokens that is not needed.
+	//: This will remove excess tokens that is not needed.
 	matchList = matchList.join( "[\n]" ).replace( /\t/g, "" ).split( "[\n]" );
 
-	//We need to traverse each object command data to parse JSON data parameters.
+	//: We need to traverse each object command data to parse JSON data parameters.
 	var objectCommandList = [ ];
 
 	var objectCommandData;
 	for( var index = 0; index < matchListLength; index++ ){
-		//Remove excess spaces at both ends.
+		//: Remove excess spaces at both ends.
 		objectCommandData = matchList[ index ].trim( );
 
-		//Extract parameter data and command.
+		//: Extract parameter data and command.
 		objectCommandData = objectCommandData.match( OBJECT_COMMAND_FORMAT_PATTERN );
 
-		//This is the only hack I can think to separate JSON format strings.
+		//: This is the only hack I can think to separate JSON format strings.
 		var parameterData = objectCommandData[ 2 ];
 		try{
 			parameterData = JSON.parse( parameterData );
+
 		}catch( error ){
-			//Remove excess whitespaces for non-JSON strings.
+			console.warn( "generated an error when parsing an assumed standard JSON data" );
+			
+			//: Remove excess whitespaces for non-JSON strings.
 			parameterData = parameterData.replace( /^\s+/gm, "" );
 		}
 
