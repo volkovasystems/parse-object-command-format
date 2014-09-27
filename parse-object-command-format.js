@@ -50,7 +50,7 @@
 */
 var parseObjectCommandFormat = function parseObjectCommandFormat( stringData ){
 	//: This will separate and extract the object command format tokens.
-	var matchList = stringData.match( OBJECT_COMMAND_FORMAT_GREEDY_PATTERN );
+	var matchList = stringData.match( OBJECT_COMMAND_FORMAT_GREEDY_PATTERN ) || [ ];
 
 	var matchListLength = matchList.length;
 	if( matchList === null || matchListLength == 0 ){
