@@ -3,7 +3,6 @@
 		The MIT License (MIT)
 
 		Copyright (c) 2014 Richeve Siodina Bebedor
-		Copyright (c) 2014 Geoff Diaz
 
 		Permission is hereby granted, free of charge, to any person obtaining a copy
 		of this software and associated documentation files (the "Software"), to deal
@@ -31,12 +30,6 @@
 			"moduleName": "parseObjectCommandFormat",
 			"authorName": "Richeve S. Bebedor",
 			"authorEMail": "richeve.bebedor@gmail.com",
-			"contributorList": [
-				{
-					"contributorName": "Geoff Diaz",
-					"contributorEMail": "",
-				}
-			],
 			"repository": "git@github.com:volkovasystems/parse-object-command-format.git"
 		}
 	@end-module-configuration
