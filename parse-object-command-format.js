@@ -88,7 +88,7 @@ var parseObjectCommandFormat = function parseObjectCommandFormat( stringData ){
 	return objectCommandList;
 };
 
-const OBJECT_COMMAND_FORMAT_GREEDY_PATTERN = /(?:@([a-z][a-z0-9]+(?:-[a-z][a-z0-9]+)*):)\s*([^\b]+?)\s*(?:@end-(?:\1|command))/gm;
-const OBJECT_COMMAND_FORMAT_PATTERN = /(?:@([a-z][a-z0-9]+(?:-[a-z][a-z0-9]+)*):)\s*([^\b]+?)\s*(?:@end-(?:\1|command))/;
+const OBJECT_COMMAND_FORMAT_GREEDY_PATTERN = /(?:\@([a-z][a-z0-9]+(?:\-[a-z][a-z0-9]+)*)\:)\s*([^\b]+?)\s*(?:\@end\-(?:\1|command))/gm;
+const OBJECT_COMMAND_FORMAT_PATTERN = /(?:\@([a-z][a-z0-9]+(?:\-[a-z][a-z0-9]+)*)\:)\s*([^\b]+?)\s*(?:\@end\-(?:\1|command))/;
 
 module.exports = parseObjectCommandFormat;
